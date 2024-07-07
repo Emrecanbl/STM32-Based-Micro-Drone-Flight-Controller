@@ -1,56 +1,66 @@
 STM32-Based Micro Drone Flight Controller
-This project is the flight controller for a micro drone, utilizing an STM32 microcontroller and several peripheral sensors and components. It is designed to work with the NRF24L transceiver module for communication and includes functionality for sensor integration and motor control.
+This project is a flight controller for a micro drone using an STM32 microcontroller, NRF24L, MPU6050, and BMP180. The system is still under development, focusing on PID tuning.
 
 Features
-STM32 Microcontroller: Provides the core processing capabilities for the flight controller.
-NRF24L Transceiver: Ensures reliable wireless communication with the drone controller.
-MPU6050: Integrates a 3-axis gyroscope and accelerometer for flight stabilization.
+STM32 Microcontroller: Core processing unit for the flight controller.
+NRF24L Module: Provides 2.4GHz wireless communication.
+MPU6050: Accelerometer and gyroscope for motion sensing.
 BMP180: Barometric pressure sensor for altitude measurement.
-Brushed Motors: Provides thrust and control for the drone's flight.
-PID Control: Implements a PID control algorithm for stable flight (currently under tuning).
+PID Control: Ensures stable flight by adjusting motor speeds.
 Components
 STM32 Microcontroller
-NRF24L Transceiver Module (connected via SPI)
+NRF24L01+ Module
 MPU6050 Accelerometer and Gyroscope
 BMP180 Barometric Pressure Sensor
 Brushed Motors
+Various peripheral components (e.g., resistors, capacitors)
 Installation
 Clone the repository:
 
-sh
-Kodu kopyala
 git clone https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller.git
 Open the project:
 Open the project in your preferred IDE (e.g., STM32CubeIDE).
 
+Configure the environment:
+
+Ensure that the project is set up with the correct STM32 microcontroller configuration.
+Configure the I2C settings for the MPU6050 and BMP180.
+Configure the SPI settings for the NRF24L module.
 Compile and upload:
 Compile the code and upload it to your STM32 microcontroller using a suitable programmer (e.g., ST-Link).
-![Sample](https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller/blob/main/IMG_20240405_232716.jpg?raw=true)
+
 Usage
-Power on the drone:
-Ensure the drone is powered and the sensors and motors are connected properly.
+Connect the Sensors and Motors:
 
-Pairing:
-The drone will automatically attempt to pair with the NRF24L-based controller.
+Connect the MPU6050 and BMP180 to the STM32 microcontroller via I2C.
+Connect the NRF24L module to the STM32 microcontroller via SPI.
+Connect the brushed motors to the appropriate GPIO pins on the STM32.
+Power on the system:
+Ensure that the STM32 microcontroller, sensors, and motors are properly powered.
 
-Flight:
-Use the controller to pilot the drone. The flight controller integrates sensor data and executes the PID control algorithm for stable flight.
+Initialize the system:
+The microcontroller will automatically start the communication with the sensors and process the data for flight control.
 
-PID Tuning
-PID tuning is crucial for achieving stable flight. Adjust the PID coefficients in the code to optimize the drone's response to control inputs.
-![Sample](https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller/blob/main/appearance.jpg?raw=true)
+Tune the PID Controller:
+Adjust the PID parameters to achieve stable flight.
+![Sample](https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller/blob/main/IMG_20240405_232716.jpg?raw=true)
+
 Troubleshooting
-Connection Issues: Ensure that the NRF24L modules on both the drone and the controller are powered and within range.
-Sensor Problems: Verify the connections and calibrations of the MPU6050 and BMP180 sensors.
-Motor Control Issues: Check the connections to the brushed motors and ensure they are receiving the correct signals from the microcontroller.
-PID Tuning: If the drone is unstable, adjust the PID coefficients to better match the drone's dynamics.
+No Communication: Check the connections and ensure the NRF24L modules and sensors are properly configured.
+Sensor Errors: Verify the connections and calibration of the MPU6050 and BMP180.
+Motor Issues: Check the connections and power supply for the motors.
+Microcontroller Issues: Ensure the code is correctly compiled and uploaded to the STM32 microcontroller.
 Contributing
 Contributions are welcome! If you have any ideas, suggestions, or improvements, feel free to open an issue or submit a pull request.
+![Sample](https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller/blob/main/appearance.jpg?raw=true)
+
 ![Sample](https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller/blob/main/appearance_2.jpg?raw=true)
 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Acknowledgments
 Special thanks to the open-source community and the developers of the libraries and tools used in this project.
+
+
 
 
