@@ -18,6 +18,7 @@ Installation
 Clone the repository:
 
 git clone https://github.com/Emrecanbl/STM32-Based-Micro-Drone-Flight-Controller.git
+
 Open the project:
 Open the project in your preferred IDE (e.g., STM32CubeIDE).
 
